@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="event-test">跨浏览器的事件处理程序</div>
+    <div contenteditable="true"></div>
+
+<script type="text/javascript" src="eventCompatible.js"></script>
+<script type="text/javascript">
+    var testDiv = document.querySelector('#event-test');
+    var handleObject = {
+        addHandle1:function(){
+             console.log('event-test对应的元素的点击事件');
+        },
+        addHandle2 : function(){
+            console.log('body元素的点击事件');
+        },
+        removeHandle1 : function(){
+            console.log('移除body元素的点击事件');
+        }
+    }
+    EventUtil.addHandle(testDiv,'click',function(event){
+        EventUtil.getEvent(event);
+        console.log('event-test对应的元素的点击事件');
+        EventUtil.stopPropagation(event);
+    });
+    EventUtil.addHandle(document.querySelector('body'),'click',handleObject.addHandle1);
+   // EventUtil.removeHandle(document.querySelector('body'),'click',handleObject.removeHandle1);
+
+</script>
+</body>
+</html>
