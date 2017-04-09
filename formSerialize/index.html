@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <form name="test-form">
+        <label for="username"><span>用户名：</span><input type="text" id="username" name="username" value="hahah"/></label><br>
+        <label for="age"><span>年龄：</span><input id="age" type="text" name="age" value="23"/></label><br>
+        <label ><span>性别：</span>
+            <input type="radio" name="sex" value='男' >男
+            <input type="radio" name="sex" value='女' >女
+        </label><br>
+        <select name="job" id="job">
+            <option value="teacher">教师</option>
+            <option value="programmer">程序员</option>
+            <option value="doctors">医生</option>
+        </select><br>
+        <button id="submit">提交</button>
+    </form>
+    <script type="text/javascript" src="serialize.js"></script>
+    <script type="text/javascript">
+        window.onload = function(){
+            var form = document.forms[0];
+            document.querySelector('#submit').addEventListener('click',function(event){
+                var serializeStr = serialize(form);
+                console.log(serializeStr);
+                if(event.stopDefault){
+                    event.stopDefault();
+                }else{
+                    event.returnValue = false;
+                }
+            },false);
+        }
+    </script>
+</body>
+</html>
