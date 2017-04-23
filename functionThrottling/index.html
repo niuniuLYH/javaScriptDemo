@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        div{
+            width: 30%;
+            height: 200px;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<body>
+    <div>hahahahah，要改变我的大小</div>
+    <script type="text/javascript" src="throttling.js"></script>
+    <script type="text/javascript" >
+        function resizeDiv(){
+            var div = document.querySelector('div');
+            div.style.height = div.offsetWidth + 'px';
+        }
+        window.onresize = function(){
+            throttle(resizeDiv);
+            processor.performProcessing();//当不经过process而直接调用performancessing方法时，在改变浏览器窗口大小的时候，这个方法会被持续调用。
+            processor.process();//当经过process再调用时，改变窗口的大小时，performProcessing不会被持续调用，而是一次变化结束之后才会调用一次。能够大大的提高性能
+            // resizeDiv();
+        }
+    </script>
+</body>
+</html>
