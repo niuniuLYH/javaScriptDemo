@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="draggable" style="position:absolute;background:red;width:100px;height:100px" ></div>
+    <div id="status" style="position:absolute;">status: </div>
+    <script type="text/javascript" src="eventCompatible.js"></script>
+    <script type="text/javascript" src="customEvents.js"></script>
+    <script type="text/javascript" src="dragAndDrop.js"></script>
+    <script type="text/javascript" >
+    window.onload = function(){
+        DragDrop.enable();
+    }
+       
+
+    </script>
+</body>
+</html>
